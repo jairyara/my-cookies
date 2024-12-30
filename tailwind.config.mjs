@@ -9,7 +9,14 @@ export default {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
+			fontFamily: {
+				sans: ["Poppins", "sans-serif"],
+				serif: ["Cookie", "serif"],
+			},
     		colors: {
+				custom: {
+					bg: '#263238',
+				},
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
@@ -53,5 +60,5 @@ export default {
     		}
     	}
     },
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate", '@tailwindcss/typography')],
 }
