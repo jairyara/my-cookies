@@ -1,0 +1,145 @@
+---
+import {getCollection, render} from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import {Icon} from "astro-icon/components";
+
+export async function getStaticPaths() {
+    const recipes = await getCollection("recipes");
+    return recipes.map((recipe: any) => ({
+        params: {id: recipe.slug},
+        props: {recipe}
+    }));
+}
+
+const {recipe} = Astro.props;
+const {data, slug} = recipe;
+const {title, description, image, ingredients, category, time, quantity, nutrition, steps, anymore, fillings, decorate} = data;
+
+---
+
+<Layout title={title} description={description}>
+    <section class="lg:w-[900px] mx-auto mt-4 mb-8">
+        <section class="border-b border-slate-400 pb-2 flex items-center gap-12">
+            <img transition:name=`img-${slug}` class="w-48 aspect-square object-cover" src={`../${image}`} alt={title}/>
+            <div class="w-full">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-5xl font-serif my-2">{title}</h1>
+                    <div class="rounded-xl bg-violet-300 text-center px-4">
+                        <p>{category}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <Icon name='time'/>
+                    <p class="text-sm text-slate-500">
+                        Preparación en {time} minutos
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <Icon name='cookie'/>
+                    <p class="text-sm text-slate-500">
+                        Para {quantity} unidades
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="mt-6 flex gap-4 ">
+            <section class="w-1/2 border-r border-slate-400">
+                <section class="border-b border-slate-400 pb-2">
+                    <h2 class="text-2xl font-serif">Ingredientes</h2>
+                    <ul class="list-disc list-inside">
+                        {
+                            ingredients.map((ingredient: string) => (
+                                <li>{ingredient}</li>
+                            ))
+                        }
+                    </ul>
+                    {
+                        anymore.length > 0 && (
+                            <div>
+                                <h3 class="text-2xl font-serif">
+                                    Además necesitarás:
+                                </h3>
+                                <ul class="list-disc list-inside">
+                                    {
+                                        anymore.map((ingredient: string) => (
+                                            <li>{ingredient}</li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        )
+                    }
+                    {
+                        fillings.length > 0 && (
+                            <div>
+                                <h3 class="text-2xl font-serif">
+                                    Rellenos:
+                                </h3>
+                                <ul class="list-disc list-inside">
+                                    {
+                                        fillings.map((ingredient: string) => (
+                                            <li>{ingredient}</li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        )
+                    }
+                    {
+                        decorate.length > 0 && (
+                            <div>
+                                <h3 class="text-2xl font-serif">
+                                    Decoración:
+                                </h3>
+                                <ul class="list-disc list-inside">
+                                    {
+                                        decorate.map((ingredient: string) => (
+                                            <li>{ingredient}</li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        )
+                    }
+                    {
+                        decorate.length > 0 && (
+                            <div>
+                                <h3 class="text-2xl font-serif">
+                                    Decoración:
+                                </h3>
+                                <ul class="list-disc list-inside">
+                                    {
+                                        decorate.map((ingredient: string) => (
+                                            <li>{ingredient}</li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        )
+                    }
+                </section>
+                <section>
+                    <h2 class="text-2xl font-serif">Información nutricional</h2>
+                    <ul class="list-disc list-inside">
+                        {
+                            nutrition.map((nutrient: string) => (
+                                <li>{nutrient}</li>
+                            ))
+                        }
+                    </ul>
+                </section>
+            </section>
+            <section class="prose w-1/2">
+                <h2 class="text-2xl font-serif">Preparación</h2>
+                {
+                    steps && steps.map((step: string, index: number) => (
+                        <section class="border-b border-slate-400 pb-2">
+                            <h3 class="text-xl font-serif">Paso {index + 1}</h3>
+                            <p class="prose">{step}</p>
+                        </section>
+                    ))
+                }
+            </section>
+        </section>
+    </section>
+</Layout>

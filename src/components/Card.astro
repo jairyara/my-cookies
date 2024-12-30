@@ -1,0 +1,38 @@
+---
+import {Icon} from 'astro-icon/components';
+
+export interface CardProps {
+    title: string;
+    category: string;
+    image: string;
+    slug: string;
+    time: number;
+    quantity: number;
+}
+
+const {title, category, image, slug, time, quantity} = Astro.props as CardProps;
+---
+
+<a href={`recetas/${slug}`} class="block shadow rounded">
+    <article class="flex gap-4">
+        <img transition:name=`img-${slug}` src={image} alt={title} class="w-1/2 object-cover aspect-square rounded"/>
+        <section class="py-4 pr-4 flex flex-col justify-around">
+            <h2 class="font-serif text-3xl">{title}</h2>
+            <div class="flex items-center gap-2">
+                <Icon name='time'/>
+                <p class="text-sm">
+                    Preparación en {time} minutos
+                </p>
+            </div>
+            <div class="flex items-center gap-2">
+                <Icon name='cookie'/>
+                <p class="text-sm">
+                    Para {quantity} unidades
+                </p>
+            </div>
+            <div class="rounded-xl bg-violet-300 text-center">
+                <p>{category}</p>
+            </div>
+        </section>
+    </article>
+</a>

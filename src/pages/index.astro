@@ -1,11 +1,23 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import {getCollection} from 'astro:content';
+
+const recipes = await getCollection('recipes');
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio" description="Galletas fáciles de hacer">
+    <section class="grid grid-cols-2 container mx-auto mt-8 gap-8">
+        {
+            recipes.map((recipe: any) => {
+                const {data, slug} = recipe;
+                const {title, image, time, quantity, category} = data;
+
+                return (
+                        <Card title={title} category={category} image={image} slug={slug} time={time} quantity={quantity}/>
+                );
+            })
+        }
+    </section>
 </Layout>
