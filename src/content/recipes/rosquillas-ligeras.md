@@ -5,25 +5,26 @@ category: Muy sabrosas
 quantity: 60
 time: 25
 nutrition: [
-"3.750 kcal / 15.750 kj",
+"3.930 kcal / 16.506 kj",
 "Proteínas: 60g",
-"Grasas: 180g",
-"Hidratos: 480g"
+"Grasas: 240g",
+"Hidratos: 360g"
 ]
 ingredients: [
-"125g de mantequilla",
-"250g de azúcar glas",
-"1 pizca de sal",
-"3 claras de huevo",
-"250g de harina",
-"1/2 cp de anís en grano"
+"250g de mantequilla",
+"3-4 cucharas soperas de azúcar",
+"3 cucharas soperas de nata agria",
+"500g de harina",
+"4 yemas de huevo"
 ]
 steps: [
-"Bata las yemas de huevo junto con el azúcar glas y sal. Bata a punto de nieve las claras de huevo y mézclelas con movimientos suave con la masa de yemas. Incorpore la harina tamizada y el anís.",
-"Llene con esta masa una manga pastelera con boquilla redonda y haga montoncitos de entre 2 y 2.5 cm de diámetro sobre bandejas de horno forradas con papel vegetal. Espolvoree un poco de azúcar. Déjela secar toda la noche a temperatura ambiente.",
-"Al día siguiente, hornee las galletas en el horno precalentado a 150ºC, en el nivel central entre 20 y 25 minutos. No abra en ningún caso el horno durante este tiempo. Deje enfriar las galletas en la bandeja y almacénelas en un lugar fresco y bien cerrado 2 o tres semanas, para que se ablanden."
+"Agregar las harina tamizada, la mantequilla derretida , la nata agria, el azucar y las 4 yemas de huevo, amase uno instantes hasta obtener una masa quebrada lisa, y dejela enfriar durante 1 hora",
+"Primero el horno precalentado a 180ºC, Extienda la masa sobre una superficie enharinada levemente, ahora se cortara con el molde de galletas redondo en porciones (5cm de diámetro). COn otro cortador elimine el centro para formar rosquillas (3cm de diámetro).",
+"Forre una bandeja de horno con papel vegetal y coloque en ellas las galletas. Unte la parte de arriba de cada galleta con un poco de la mantequilla para untar y espolvoréelas con azúcar de canela. Cuézalas en el horno durante 15 minutos."
 ]
-anymore: []
+anymore: ["algo de mantequilla blanda para untar",
+          "Azúcar de canela (4 cucharas soperas de azúcar + 1 cuchara de postre de canela en polvo )"
+]
 decorate: []
 fillings: []
 ---
